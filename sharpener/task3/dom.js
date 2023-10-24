@@ -20,10 +20,19 @@
 // headerTitle.textContent="textContent"
 // console.log(headerTitle.innerHTML)
 //  headerTitle.innerHTML="innerHTML"
-headerTitle.innerHTML= '<h6>innerHtmlwithH6</h6>'
-let header=document.querySelector('header')
-header.style.borderBottom='solid 5px #000'
-let formTitle=document.querySelector(".title")
-formTitle.style.fontWeight='bold'
-formTitle.style.color='green'
+// headerTitle.innerHTML= '<h6>innerHtmlwithH6</h6>'
+// let header=document.querySelector('header')
+// header.style.borderBottom='solid 5px #000'
+// let formTitle=document.querySelector(".title")
+// formTitle.style.fontWeight='bold'
+// formTitle.style.color='green'
+
+let items= document.getElementsByClassName('list-group-item')
+console.log(items)
+items[2].style.backgroundColor='green'
+ 
+for(let i=0;i<items.length;i++)
+{
+    items[i].style.fontWeight='bold'
+}
 
