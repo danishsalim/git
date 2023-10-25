@@ -1,0 +1,22 @@
+h1{
+    color:brown;
+}
+body{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("bg.jpeg") ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+form{
+  display: flex;
+  flex-flow: column;
+}
+
+#submit{
+    background-color:#4f4f;
+    margin: 20px;
+}
+
