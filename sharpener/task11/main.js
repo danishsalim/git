@@ -17,10 +17,14 @@ function validate(e)
    {
     let li=document.createElement('li')
     li.appendChild(document.createTextNode(name.value+"   "+email.value))
+    let del=document.createElement('button')
+    let val=(document.createTextNode('delete'))
+    del.appendChild(val)
+    li.appendChild(del)
     users.appendChild(li)
     let mydetail=JSON.stringify({name:name.value,email:email.value})
     localStorage.setItem(email.value,mydetail)
-    console.log(JSON.parse(localStorage.getItem('userDetails')))
+    del.addEventListener('click',deleteElement)
    }
    else{
         console.log('please fill all input fields')
@@ -28,4 +32,11 @@ function validate(e)
         msg.style.color='red'
         setTimeout(()=>msg.innerHTML="",3000)
    }
+}
+
+//delete
+function deleteElement(e)
+{
+    e.target.parentElement.remove()
+    localStorage.removeItem(email.value)
 }
