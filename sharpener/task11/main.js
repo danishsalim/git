@@ -15,8 +15,11 @@ function validate(e)
     e.preventDefault()
    if(name.value!="" && email.value!="")
    {
+    let li=document.createElement('li')
+    li.appendChild(document.createTextNode(name.value+"   "+email.value))
+    users.appendChild(li)
     let mydetail=JSON.stringify({name:name.value,email:email.value})
-    localStorage.setItem("userDetails",mydetail)
+    localStorage.setItem(email.value,mydetail)
     console.log(JSON.parse(localStorage.getItem('userDetails')))
    }
    else{
