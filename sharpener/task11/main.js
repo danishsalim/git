@@ -21,10 +21,15 @@ function validate(e)
     let val=(document.createTextNode('delete'))
     del.appendChild(val)
     li.appendChild(del)
+    let edit=document.createElement('button')
+    let editval=(document.createTextNode('edit'))
+    edit.appendChild(editval)
+    li.appendChild(edit)
     users.appendChild(li)
     let mydetail=JSON.stringify({name:name.value,email:email.value})
     localStorage.setItem(email.value,mydetail)
     del.addEventListener('click',deleteElement)
+    edit.addEventListener('click',editElement)
    }
    else{
         console.log('please fill all input fields')
@@ -39,4 +44,15 @@ function deleteElement(e)
 {
     e.target.parentElement.remove()
     localStorage.removeItem(email.value)
+}
+//edit
+function editElement(e)
+{
+    // console.log(e.target.parentElement.firstChild.textContent)
+  email.value=e.target.parentElement.firstChild.textContent.split(" ").filter((item)=>item.includes("@")).join("")
+  name.value=e.target.parentElement.firstChild.textContent.split(" ").filter((item)=>{
+    if(!item.includes("@")){return item}}).join(" ")
+    e.target.parentElement.remove()
+    localStorage.removeItem(email.value)
+    
 }
