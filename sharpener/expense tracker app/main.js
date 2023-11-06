@@ -47,7 +47,7 @@ function deleteElement(e)
 function editElement(e)
 {
     let arr=e.target.parentElement.firstChild.textContent.split(" ").filter((item)=>item!="")
-    console.log(arr)
+    console.log(e.target.parentElement.firstChild)
     description.value=arr[1]
   expense.value=arr[0]
   category.value=arr[2]
