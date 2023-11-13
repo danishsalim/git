@@ -13,19 +13,20 @@ const prevMovie = async()=>{
     const getColddrink= new Promise((resolve,reject)=>resolve('ColdDrink'))
     const getButter=  new Promise((resolve,reject)=>resolve(' butter'))
 
-    let ticket= await promiseWifeBringsTic;
-    console.log('husband: lets go we have '+ticket)
-    console.log('wife : no i want popcorn')
-    let popcorn = await getPopcorn;
-    console.log('husband: '+ticket+" "+popcorn)
-    console.log('wife : wait i want butter on my popcorn')
-    let butter = await  getButter;
-    console.log('husband: '+ticket+" "+popcorn+" "+butter)
-    console.log('wife : wait i want coldDrink ')
-    let coldDrink=await getColddrink;
-    console.log('husband: '+ticket+" "+popcorn+" "+butter+" "+coldDrink)
-    console.log('wife : lets go')
-
+     let ticket= await promiseWifeBringsTic;
+    // console.log('husband: lets go we have '+ticket)
+    // console.log('wife : no i want popcorn')
+    // let popcorn = await getPopcorn;
+    // console.log('husband: '+ticket+" "+popcorn)
+    // console.log('wife : wait i want butter on my popcorn')
+    // let butter = await  getButter;
+    // console.log('husband: '+ticket+" "+popcorn+" "+butter)
+    // console.log('wife : wait i want coldDrink ')
+    // let coldDrink=await getColddrink;
+    // console.log('husband: '+ticket+" "+popcorn+" "+butter+" "+coldDrink)
+    // console.log('wife : lets go')
+    let [popcorn,coldrink,butter]= await Promise.all([getPopcorn,getColddrink,getButter])
+    console.log(popcorn,coldrink,butter)
   return ticket
 }
 prevMovie().then((m)=>console.log('person 3 : shows '+m))
