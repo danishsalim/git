@@ -9,13 +9,15 @@ subBtn.addEventListener('mouseover',()=>subBtn.style.background='orange')
 
 form.addEventListener('submit',validate)
 
+
+
 //getting data from server on loading
 window.addEventListener("DOMContentLoaded",()=>{
       axios
           .get("https://crudcrud.com/api/81ab0d65143043dcb43f49d8e0fcb979/booking")
           .then(res=>{
             res.data.map((item)=>displayResponse(item))
-            console.log(res.data)
+            // console.log(res.data)
           })
           .catch((err)=>console.log(err))
     })
@@ -48,8 +50,11 @@ function validate(e)
 //delete
 function deleteElement(e)
 {
+    let id=e.target.id 
+    axios
+        .delete("https://crudcrud.com/api/81ab0d65143043dcb43f49d8e0fcb979/booking/"+id)
+        .catch((err)=>console.log(err))
     e.target.parentElement.remove()
-    // localStorage.removeItem(email.value)
 }
 //edit
 function editElement(e)
@@ -66,16 +71,18 @@ function editElement(e)
 
 function displayResponse(resData){
     let li=document.createElement('li')
-    li.appendChild(document.createTextNode(resData.name+"   "+resData.email))
     let del=document.createElement('button')
     let val=(document.createTextNode('delete'))
-    del.appendChild(val)
-    li.appendChild(del)
     let edit=document.createElement('button')
     let editval=(document.createTextNode('edit'))
+    del.appendChild(val)
     edit.appendChild(editval)
+    del.setAttribute("id",resData._id)
+    edit.setAttribute("id",resData._id)
+    li.appendChild(document.createTextNode(resData.name+"   "+resData.email))
+    li.appendChild(del)
     li.appendChild(edit)
     users.appendChild(li)
-    del.addEventListener('click',deleteElement)
+    del.addEventListener('click',(e)=>deleteElement(e))
     edit.addEventListener('click',editElement)
 }
