@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer's Orders</title>
+</head>
+<body>
+    <div class="container">
+        <form action="" >
+            <div class="details">
+                <label for="price">Choose Price :</label>
+                <input type="number" id="price" name="price">
+                <label for="dish">Choose Dish :</label>
+                <input type="text" id="dish" name="dish">
+                <label for="tableNumber">Choose a Table :</label>
+                <select name="tableNumber" id="tableNumber">
+                    <option value="table1">
+                        table1
+                    </option>
+                    <option value="table2">
+                        table2
+                    </option>
+                    <option value="table3">
+                        table3
+                    </option>
+                </select>
+                <input type="submit" id='submit' value="Add to bill">
+            </div>
+        </form>
+
+        <h2>Orders</h2>
+        <div class="orders">
+            <div class="table1">
+                <label for="table1">Table1 :</label>
+               
+            </div>
+            <div class="table2">
+                <label for="table2">Table2 :</label>
+                
+            </div>
+            <div class="table3">
+                <label for="table3">Table3 :</label>
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="main.js"></script>
+</html>
